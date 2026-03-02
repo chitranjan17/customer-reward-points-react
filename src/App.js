@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import RewardsTable from "./components/RewardsTable";
+import GenericTable from "./components/GenericTable";
 import CustomerSummary from "./components/CustomerSummary";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -65,8 +65,14 @@ function App() {
     if (!rewards.length) return [];
     const sample = rewards[0];
     const cols = [
-      { header: LABELS.TABLE_HEADERS.CUSTOMER_ID, accessor: (r) => r.customerId },
-      { header: LABELS.TABLE_HEADERS.CUSTOMER_NAME, accessor: (r) => r.customerName },
+      {
+        header: LABELS.TABLE_HEADERS.CUSTOMER_ID,
+        accessor: (r) => r.customerId,
+      },
+      {
+        header: LABELS.TABLE_HEADERS.CUSTOMER_NAME,
+        accessor: (r) => r.customerName,
+      },
     ];
     // any byMonth keys
     if (sample.byMonth) {
@@ -93,7 +99,7 @@ function App() {
       <main className="app-main">
         {summary && <CustomerSummary summary={summary} loading={loading} />}
 
-        <RewardsTable rewards={rewards} loading={loading} columns={columns} />
+        <GenericTable rewards={rewards} loading={loading} columns={columns} />
       </main>
 
       <Footer summary={summary} lastUpdated={lastUpdated} />

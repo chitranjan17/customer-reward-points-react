@@ -22,7 +22,7 @@ This application demonstrates a rewards program where customers earn points base
 
 - Simulated async API calls to fetch transaction data
 - Calculates rewards per customer per month
-- Displays monthly breakdowns and total rewards
+- Displays monthly breakdowns and total rewards using a generic table component
 - Summary statistics for the 3-month period
 - Responsive design that works on desktop and mobile
 - Loading states and error handling
@@ -43,7 +43,7 @@ rewards-program/
 │   └── index.html              # Main HTML entry point
 ├── src/
 │   ├── components/
-│   │   ├── RewardsTable.js      # Table showing rewards by customer/month
+│   │   ├── GenericTable.js      # Reusable table component (formerly RewardsTable)
 │   │   └── CustomerSummary.js   # Summary statistics display
 │   ├── utils/
 │   │   ├── api.js              # Simulated API calls

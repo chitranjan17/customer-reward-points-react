@@ -1,17 +1,29 @@
 import React, { useState, useMemo } from "react";
 import { LABELS } from "../constants";
 
-const RewardsTable = ({ rewards = [], loading, columns }) => {
+const GenericTable = ({ rewards = [], loading, columns }) => {
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(5);
 
   // columns prop should be array of { header: string, accessor: row=>value }
   const defaultColumns = [
     { header: LABELS.TABLE_HEADERS.CUSTOMER_ID, accessor: (r) => r.customerId },
-    { header: LABELS.TABLE_HEADERS.CUSTOMER_NAME, accessor: (r) => r.customerName },
-    { header: LABELS.TABLE_HEADERS.DECEMBER, accessor: (r) => r.byMonth?.December },
-    { header: LABELS.TABLE_HEADERS.JANUARY, accessor: (r) => r.byMonth?.January },
-    { header: LABELS.TABLE_HEADERS.FEBRUARY, accessor: (r) => r.byMonth?.February },
+    {
+      header: LABELS.TABLE_HEADERS.CUSTOMER_NAME,
+      accessor: (r) => r.customerName,
+    },
+    {
+      header: LABELS.TABLE_HEADERS.DECEMBER,
+      accessor: (r) => r.byMonth?.December,
+    },
+    {
+      header: LABELS.TABLE_HEADERS.JANUARY,
+      accessor: (r) => r.byMonth?.January,
+    },
+    {
+      header: LABELS.TABLE_HEADERS.FEBRUARY,
+      accessor: (r) => r.byMonth?.February,
+    },
     { header: LABELS.TABLE_HEADERS.TOTAL_POINTS, accessor: (r) => r.total },
   ];
 
@@ -44,22 +56,43 @@ const RewardsTable = ({ rewards = [], loading, columns }) => {
     <div className="table-container">
       <h2>Rewards by Customer and Month</h2>
 
-      <div className="table-controls" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
+      <div
+        className="table-controls"
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginBottom: 12,
+        }}
+      >
         <div>
           <label style={{ marginRight: 8 }}>Rows:</label>
-          <select value={pageSize} onChange={(e) => { setPageSize(Number(e.target.value)); setPage(1); }}>
+          <select
+            value={pageSize}
+            onChange={(e) => {
+              setPageSize(Number(e.target.value));
+              setPage(1);
+            }}
+          >
             <option value={5}>5</option>
             <option value={10}>10</option>
             <option value={20}>20</option>
           </select>
         </div>
 
-        <div className="pagination" style={{ display: "flex", gap: 8, alignItems: "center" }}>
-          <button onClick={onPrev} disabled={page === 1}>Prev</button>
+        <div
+          className="pagination"
+          style={{ display: "flex", gap: 8, alignItems: "center" }}
+        >
+          <button onClick={onPrev} disabled={page === 1}>
+            Prev
+          </button>
           <span>
             Page {page} / {totalPages}
           </span>
-          <button onClick={onNext} disabled={page === totalPages}>Next</button>
+          <button onClick={onNext} disabled={page === totalPages}>
+            Next
+          </button>
         </div>
       </div>
 
@@ -84,11 +117,19 @@ const RewardsTable = ({ rewards = [], loading, columns }) => {
         </tbody>
       </table>
 
-      <div style={{ marginTop: 12, display: "flex", justifyContent: "flex-end", alignItems: "center", gap: 12 }}>
+      <div
+        style={{
+          marginTop: 12,
+          display: "flex",
+          justifyContent: "flex-end",
+          alignItems: "center",
+          gap: 12,
+        }}
+      >
         <small>{totalItems} customers</small>
       </div>
     </div>
   );
 };
 
-export default RewardsTable;
+export default GenericTable;
