@@ -8,6 +8,7 @@ const GenericTable = ({
   title = "",
   itemName = "items",
   loadingText = LABELS.LOADING_REWARDS,
+  mapper, // optional function(data) => { cols, title, itemName }
 }) => {
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(5);
@@ -34,7 +35,17 @@ const GenericTable = ({
     { header: LABELS.TABLE_HEADERS.TOTAL_POINTS, accessor: (r) => r.total },
   ];
 
-  const tableCols = columns && columns.length ? columns : fallbackColumns;
+  // if a mapper is provided, run it to derive configuration
+  let tableTitle = title;
+  let tableItemName = itemName;
+  let tableCols = columns && columns.length ? columns : fallbackColumns;
+
+  if (mapper && typeof mapper === "function") {
+    const mapped = mapper(data) || {};
+    if (mapped.title) tableTitle = mapped.title;
+    if (mapped.itemName) tableItemName = mapped.itemName;
+    if (mapped.cols && mapped.cols.length) tableCols = mapped.cols;
+  }
 
   const totalItems = data.length;
   const totalPages = Math.max(1, Math.ceil(totalItems / pageSize));
@@ -61,7 +72,7 @@ const GenericTable = ({
 
   return (
     <div className="table-container">
-      {title && <h2>{title}</h2>}
+      {tableTitle && <h2>{tableTitle}</h2>}
 
       <div
         className="table-controls"
@@ -133,7 +144,9 @@ const GenericTable = ({
           gap: 12,
         }}
       >
-        <small>{totalItems} {itemName}</small>
+        <small>
+          {totalItems} {tableItemName}
+        </small>
       </div>
     </div>
   );

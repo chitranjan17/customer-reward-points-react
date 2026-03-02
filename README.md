@@ -113,8 +113,8 @@ You can build columns however you need; for example:
 
 ```js
 const columns = [
-  { header: 'Customer', accessor: r => r.customerName },
-  { header: 'Dec', accessor: r => r.byMonth.December, className: 'points' },
+  { header: "Customer", accessor: (r) => r.customerName },
+  { header: "Dec", accessor: (r) => r.byMonth.December, className: "points" },
 ];
 ```
 
