@@ -13,12 +13,12 @@ const Footer = ({ summary, lastUpdated }) => {
       <div className="footer-meta" style={{ marginTop: 8, fontSize: "0.9rem" }}>
         {summary && (
           <span>
-            {LABELS.SUMMARY.TOTAL_POINTS}: {totalPoints}
+            {LABELS.REWARDS_SUMMARY.TOTAL_POINTS}: {totalPoints}
           </span>
         )}
         {summary && (
           <span style={{ marginLeft: 12 }}>
-            {LABELS.SUMMARY.TOTAL_CUSTOMERS}: {totalCustomers}
+            {LABELS.REWARDS_SUMMARY.TOTAL_CUSTOMERS}: {totalCustomers}
           </span>
         )}
         {lastUpdated && (

@@ -103,8 +103,8 @@ function App() {
           data={rewards}
           loading={loading}
           columns={columns}
-          title={LABELS.DEFAULT_TABLE_TITLE}
-          itemName={LABELS.DEFAULT_TABLE_ITEM}
+          title={LABELS.REWARDS_TABLE_DEFAULT_TITLE}
+          itemName={LABELS.REWARDS_TABLE_DEFAULT_ITEM}
           loadingText={LABELS.LOADING_REWARDS}
         />
       </main>

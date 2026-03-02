@@ -25,15 +25,17 @@ const CustomerSummary = ({ summary, loading }) => {
       <div className={`accordion-content ${open ? "open" : "closed"}`}>
         <div className="summary-grid">
           <div className="summary-card">
-            <h3>{LABELS.SUMMARY.TOTAL_POINTS}</h3>
-            <p className="summary-value">{summary.totalPoints.toLocaleString()}</p>
+            <h3>{LABELS.REWARDS_SUMMARY.TOTAL_POINTS}</h3>
+            <p className="summary-value">
+              {summary.totalPoints.toLocaleString()}
+            </p>
           </div>
           <div className="summary-card">
-            <h3>{LABELS.SUMMARY.TOTAL_TRANSACTIONS}</h3>
+            <h3>{LABELS.REWARDS_SUMMARY.TOTAL_TRANSACTIONS}</h3>
             <p className="summary-value">{summary.totalTransactions}</p>
           </div>
           <div className="summary-card">
-            <h3>{LABELS.SUMMARY.TOTAL_SPENT}</h3>
+            <h3>{LABELS.REWARDS_SUMMARY.TOTAL_SPENT}</h3>
             <p className="summary-value">
               ${" "}
               {summary.totalSpent.toLocaleString("en-US", {
@@ -43,8 +45,10 @@ const CustomerSummary = ({ summary, loading }) => {
             </p>
           </div>
           <div className="summary-card">
-            <h3>{LABELS.SUMMARY.TOTAL_CUSTOMERS}</h3>
-            <p className="summary-value">{Object.keys(summary.customerPoints).length}</p>
+            <h3>{LABELS.REWARDS_SUMMARY.TOTAL_CUSTOMERS}</h3>
+            <p className="summary-value">
+              {Object.keys(summary.customerPoints).length}
+            </p>
           </div>
         </div>
 

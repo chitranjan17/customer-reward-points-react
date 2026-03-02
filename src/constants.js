@@ -25,7 +25,8 @@ export const LABELS = {
     TOTAL_POINTS: "Total Points",
   },
 
-  SUMMARY: {
+  // labels used when displaying the rewards summary
+  REWARDS_SUMMARY: {
     TOTAL_POINTS: "Total Points Earned",
     TOTAL_TRANSACTIONS: "Total Transactions",
     TOTAL_SPENT: "Total Spent",
@@ -36,7 +37,7 @@ export const LABELS = {
     FEBRUARY: "February",
   },
 
-  // defaults for generic table component
-  DEFAULT_TABLE_TITLE: "Rewards by Customer and Month",
-  DEFAULT_TABLE_ITEM: "customers",
+  // defaults for generic table component (rewards-specific)
+  REWARDS_TABLE_DEFAULT_TITLE: "Rewards by Customer and Month",
+  REWARDS_TABLE_DEFAULT_ITEM: "customers",
 };

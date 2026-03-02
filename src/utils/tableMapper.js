@@ -12,7 +12,10 @@ export function rewardsMapper(data) {
 
   const sample = data[0];
   const cols = [
-    { header: LABELS.REWARDS_TABLE_HEADERS.CUSTOMER_ID, accessor: (r) => r.customerId },
+    {
+      header: LABELS.REWARDS_TABLE_HEADERS.CUSTOMER_ID,
+      accessor: (r) => r.customerId,
+    },
     {
       header: LABELS.REWARDS_TABLE_HEADERS.CUSTOMER_NAME,
       accessor: (r) => r.customerName,
@@ -37,8 +40,8 @@ export function rewardsMapper(data) {
 
   return {
     cols,
-    title: LABELS.DEFAULT_TABLE_TITLE,
-    itemName: LABELS.DEFAULT_TABLE_ITEM,
+    title: LABELS.REWARDS_TABLE_DEFAULT_TITLE,
+    itemName: LABELS.REWARDS_TABLE_DEFAULT_ITEM,
   };
 }
 
