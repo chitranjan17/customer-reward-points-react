@@ -1,6 +1,6 @@
 import React from "react";
-
-// Rich footer component with tagline, description, links, and copyright
+import PropTypes from "prop-types";
+// Rich footer component with description, links, and copyright
 const Footer = ({
   description = "",
   companyName = "",
@@ -37,6 +37,22 @@ const Footer = ({
       )}
     </footer>
   );
+};
+
+Footer.propTypes = {
+  description: PropTypes.string,
+  companyName: PropTypes.string,
+  companyWebsite: PropTypes.string,
+  contactEmail: PropTypes.string,
+  copyright: PropTypes.string,
+};
+
+Footer.defaultProps = {
+  description: "",
+  companyName: "",
+  companyWebsite: "",
+  contactEmail: "",
+  copyright: "",
 };
 
 export default Footer;
