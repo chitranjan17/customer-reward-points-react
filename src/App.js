@@ -14,7 +14,7 @@ import { LABELS } from "./constants";
 function App() {
   const [rewards, setRewards] = useState([]);
   const [summary, setSummary] = useState(null);
-  const [lastUpdated, setLastUpdated] = useState(null);
+  // lastUpdated not needed for generic footer
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -31,8 +31,6 @@ function App() {
         if (response.success) {
           const transactions = response.data;
 
-          // record API timestamp
-          if (response.timestamp) setLastUpdated(response.timestamp);
 
           // Calculate rewards
           const customerRewards = calculateRewardsByCustomerMonth(transactions);
@@ -109,7 +107,10 @@ function App() {
         />
       </main>
 
-      <Footer summary={summary} lastUpdated={lastUpdated} />
+      <Footer
+        description={LABELS.FOOTER_NOTE}
+        copyright="www.xyz.com"
+      />
     </div>
   );
 }
