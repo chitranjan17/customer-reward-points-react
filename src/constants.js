@@ -15,7 +15,8 @@ export const LABELS = {
     CUSTOMER_SUMMARY_FAILED: "Unable to load customer summary",
   },
 
-  TABLE_HEADERS: {
+  // headers used by the sample rewards table
+  REWARDS_TABLE_HEADERS: {
     CUSTOMER_ID: "Customer ID",
     CUSTOMER_NAME: "Customer Name",
     DECEMBER: "December",

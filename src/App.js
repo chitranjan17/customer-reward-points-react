@@ -66,11 +66,11 @@ function App() {
     const sample = rewards[0];
     const cols = [
       {
-        header: LABELS.TABLE_HEADERS.CUSTOMER_ID,
+        header: LABELS.REWARDS_TABLE_HEADERS.CUSTOMER_ID,
         accessor: (r) => r.customerId,
       },
       {
-        header: LABELS.TABLE_HEADERS.CUSTOMER_NAME,
+        header: LABELS.REWARDS_TABLE_HEADERS.CUSTOMER_NAME,
         accessor: (r) => r.customerName,
       },
     ];
@@ -78,14 +78,14 @@ function App() {
     if (sample.byMonth) {
       Object.keys(sample.byMonth).forEach((month) => {
         cols.push({
-          header: LABELS.TABLE_HEADERS[month.toUpperCase()] || month,
+          header: LABELS.REWARDS_TABLE_HEADERS[month.toUpperCase()] || month,
           accessor: (r) => r.byMonth[month],
           className: "points",
         });
       });
     }
     cols.push({
-      header: LABELS.TABLE_HEADERS.TOTAL_POINTS,
+      header: LABELS.REWARDS_TABLE_HEADERS.TOTAL_POINTS,
       accessor: (r) => r.total,
       className: "total-points",
     });
