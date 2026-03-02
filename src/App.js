@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import RewardsTable from "./components/RewardsTable";
 import CustomerSummary from "./components/CustomerSummary";
-import ErrorBadge from "./components/ErrorBadge";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import { fetchTransactions } from "./utils/api";
 import {
   calculateRewardsByCustomerMonth,
@@ -57,12 +58,7 @@ function App() {
 
   return (
     <div className="App">
-      <header className="app-header">
-        <h1>{LABELS.APP_TITLE}</h1>
-        <p className="subtitle">{LABELS.SUBTITLE}</p>
-        {loading && <div className="loading-badge">{LABELS.LOADING}</div>}
-        {error && <ErrorBadge error={error} />}
-      </header>
+      <Header loading={loading} error={error} />
 
       <main className="app-main">
         {summary && <CustomerSummary summary={summary} loading={loading} />}
@@ -70,9 +66,7 @@ function App() {
         <RewardsTable rewards={rewards} loading={loading} />
       </main>
 
-      <footer className="app-footer">
-        <p>{LABELS.FOOTER_NOTE}</p>
-      </footer>
+      <Footer />
     </div>
   );
 }
