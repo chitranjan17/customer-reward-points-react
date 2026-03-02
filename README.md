@@ -184,19 +184,19 @@ This project is open source and available under the MIT License.
 ## ⏳ Loading State
 
 <p align="center">
-  <img src="https://github.com/chitranjan17/customer-reward-points-react/blob/master/docs/screenshots/loading.png" width="800"/>
+  <img src="https://github.com/chitranjan17/customer-reward-points-react/blob/master/docs/screenshots/loading.PNG" width="800"/>
 </p>
 
 ## 🎯 Reward Calculation Table
 
 <p align="center">
-  <img src="https://github.com/chitranjan17/customer-reward-points-react/blob/master/docs/screenshots/rewards.png" width="800"/>
+  <img src="https://github.com/chitranjan17/customer-reward-points-react/blob/master/docs/screenshots/rewards.PNG" width="800"/>
 </p>
 
 ## ❌ Error Handling
 
 <p align="center">
-  <img src="https://github.com/chitranjan17/customer-reward-points-react/blob/master/docs/screenshots/error_page.png" width="800"/>
+  <img src="https://github.com/chitranjan17/customer-reward-points-react/blob/master/docs/screenshots/error_page.PNG" width="800"/>
 </p>
 
 ## ❌ 404 page
