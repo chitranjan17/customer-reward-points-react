@@ -31,7 +31,6 @@ function App() {
         if (response.success) {
           const transactions = response.data;
 
-
           // Calculate rewards
           const customerRewards = calculateRewardsByCustomerMonth(transactions);
           setRewards(customerRewards);
@@ -108,8 +107,11 @@ function App() {
       </main>
 
       <Footer
+        tagline="Maximize Your Rewards"
         description={LABELS.FOOTER_NOTE}
-        copyright="www.xyz.com"
+        companyName="XYZ Rewards Inc."
+        companyWebsite="https://www.xyz.com"
+        contactEmail="support@xyz.com"
       />
     </div>
   );
