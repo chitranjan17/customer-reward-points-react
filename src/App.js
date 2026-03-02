@@ -7,6 +7,7 @@ import {
   calculateRewardsByCustomerMonth,
   calculateSummaryStats,
 } from "./utils/rewards";
+import { LABELS } from "./constants";
 
 function App() {
   const [rewards, setRewards] = useState([]);
@@ -35,10 +36,10 @@ function App() {
           const stats = calculateSummaryStats(transactions);
           setSummary(stats);
         } else {
-          setError("Failed to fetch data");
+          setError(LABELS.FETCH_ERROR);
         }
       } catch (err) {
-        setError("Error loading rewards data: " + err.message);
+        setError(LABELS.LOAD_ERROR_PREFIX + err.message);
       } finally {
         setLoading(false);
       }
@@ -50,9 +51,9 @@ function App() {
   return (
     <div className="App">
       <header className="app-header">
-        <h1>💳 Customer Rewards Program</h1>
-        <p className="subtitle">3-Month Rewards Summary</p>
-        {loading && <div className="loading-badge">Loading...</div>}
+        <h1>{LABELS.APP_TITLE}</h1>
+        <p className="subtitle">{LABELS.SUBTITLE}</p>
+        {loading && <div className="loading-badge">{LABELS.LOADING}</div>}
         {error && <div className="error-badge">{error}</div>}
       </header>
 
@@ -63,7 +64,7 @@ function App() {
       </main>
 
       <footer className="app-footer">
-        <p>Rewards earned based on transaction amounts over 3-month period</p>
+        <p>{LABELS.FOOTER_NOTE}</p>
       </footer>
     </div>
   );

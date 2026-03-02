@@ -1,4 +1,5 @@
 import React from "react";
+import { LABELS } from "../constants";
 
 const CustomerSummary = ({ summary, loading }) => {
   if (loading) {
@@ -7,20 +8,20 @@ const CustomerSummary = ({ summary, loading }) => {
 
   return (
     <div className="summary-container">
-      <h2>3-Month Summary Statistics</h2>
+      <h2>{LABELS.SUBTITLE} Statistics</h2>
       <div className="summary-grid">
         <div className="summary-card">
-          <h3>Total Points Earned</h3>
+          <h3>{LABELS.SUMMARY.TOTAL_POINTS}</h3>
           <p className="summary-value">
             {summary.totalPoints.toLocaleString()}
           </p>
         </div>
         <div className="summary-card">
-          <h3>Total Transactions</h3>
+          <h3>{LABELS.SUMMARY.TOTAL_TRANSACTIONS}</h3>
           <p className="summary-value">{summary.totalTransactions}</p>
         </div>
         <div className="summary-card">
-          <h3>Total Spent</h3>
+          <h3>{LABELS.SUMMARY.TOTAL_SPENT}</h3>
           <p className="summary-value">
             $
             {summary.totalSpent.toLocaleString("en-US", {
@@ -30,7 +31,7 @@ const CustomerSummary = ({ summary, loading }) => {
           </p>
         </div>
         <div className="summary-card">
-          <h3>Total Customers</h3>
+          <h3>{LABELS.SUMMARY.TOTAL_CUSTOMERS}</h3>
           <p className="summary-value">
             {Object.keys(summary.customerPoints).length}
           </p>
@@ -38,18 +39,18 @@ const CustomerSummary = ({ summary, loading }) => {
       </div>
 
       <div className="monthly-summary">
-        <h3>Points by Month</h3>
+        <h3>{LABELS.SUMMARY.POINTS_BY_MONTH}</h3>
         <div className="month-cards">
           <div className="month-card">
-            <h4>December</h4>
+            <h4>{LABELS.SUMMARY.DECEMBER}</h4>
             <p className="month-points">{summary.monthlyTotals.December}</p>
           </div>
           <div className="month-card">
-            <h4>January</h4>
+            <h4>{LABELS.SUMMARY.JANUARY}</h4>
             <p className="month-points">{summary.monthlyTotals.January}</p>
           </div>
           <div className="month-card">
-            <h4>February</h4>
+            <h4>{LABELS.SUMMARY.FEBRUARY}</h4>
             <p className="month-points">{summary.monthlyTotals.February}</p>
           </div>
         </div>

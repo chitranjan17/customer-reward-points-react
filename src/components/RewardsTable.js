@@ -1,11 +1,12 @@
 import React from "react";
+import { LABELS } from "../constants";
 
 const RewardsTable = ({ rewards, loading }) => {
   if (loading) {
     return (
       <div className="loading-container">
         <div className="spinner"></div>
-        <p>Loading rewards data...</p>
+        <p>{LABELS.LOADING_REWARDS}</p>
       </div>
     );
   }
@@ -16,12 +17,12 @@ const RewardsTable = ({ rewards, loading }) => {
       <table className="rewards-table">
         <thead>
           <tr>
-            <th>Customer ID</th>
-            <th>Customer Name</th>
-            <th>December</th>
-            <th>January</th>
-            <th>February</th>
-            <th>Total Points</th>
+            <th>{LABELS.TABLE_HEADERS.CUSTOMER_ID}</th>
+            <th>{LABELS.TABLE_HEADERS.CUSTOMER_NAME}</th>
+            <th>{LABELS.TABLE_HEADERS.DECEMBER}</th>
+            <th>{LABELS.TABLE_HEADERS.JANUARY}</th>
+            <th>{LABELS.TABLE_HEADERS.FEBRUARY}</th>
+            <th>{LABELS.TABLE_HEADERS.TOTAL_POINTS}</th>
           </tr>
         </thead>
         <tbody>
