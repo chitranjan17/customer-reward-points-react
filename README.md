@@ -5,11 +5,13 @@ A React application that calculates and displays customer rewards based on trans
 ## Overview
 
 This application demonstrates a rewards program where customers earn points based on their purchases:
+
 - **2 points** for every dollar spent **over $100** in a transaction
 - **1 point** for every dollar spent **between $50-$100** in a transaction
 - **0 points** for purchases under $50
 
 ### Example:
+
 - $120 purchase = 2 × $20 (over $100) + 1 × $50 (between $50-$100) = 90 points
 - $75 purchase = 1 × $25 (between $50-$100) = 25 points
 - $45 purchase = 0 points (under $50)
@@ -17,6 +19,7 @@ This application demonstrates a rewards program where customers earn points base
 ## Features
 
 ✨ **Key Features:**
+
 - Simulated async API calls to fetch transaction data
 - Calculates rewards per customer per month
 - Displays monthly breakdowns and total rewards
@@ -56,6 +59,7 @@ rewards-program/
 ## Sample Data
 
 The application includes transaction data for **5 customers** over a **3-month period** (December, January, February):
+
 - John Smith
 - Sarah Johnson
 - Mike Williams
@@ -65,11 +69,13 @@ The application includes transaction data for **5 customers** over a **3-month p
 ## Installation
 
 1. Clone the repository:
+
 ```bash
 cd rewards-program
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
@@ -77,12 +83,15 @@ npm install
 ## Running the Application
 
 ### Development Mode
+
 ```bash
 npm start
 ```
+
 The app will open at `http://localhost:3000`
 
 ### Production Build
+
 ```bash
 npm run build
 ```
@@ -91,7 +100,7 @@ npm run build
 
 1. **Component Initialization**: The `App` component loads on mount
 2. **API Call**: Simulates fetching transaction data with a 1.5-second delay
-3. **Calculations**: 
+3. **Calculations**:
    - `calculatePointsForTransaction()` - Calculates points for each transaction
    - `calculateRewardsByCustomerMonth()` - Groups rewards by customer and month
    - `calculateSummaryStats()` - Generates overall statistics
@@ -103,13 +112,13 @@ npm run build
 // How rewards are calculated
 const calculatePointsForTransaction = (amount) => {
   if (amount < 50) return 0;
-  
+
   let points = 0;
   if (amount > 100) {
-    points += (amount - 100) * 2;    // 2 points per $ over $100
-    points += 50 * 1;                 // 1 point per $ from $50-$100
+    points += (amount - 100) * 2; // 2 points per $ over $100
+    points += 50 * 1; // 1 point per $ from $50-$100
   } else {
-    points += (amount - 50) * 1;      // 1 point per $ from $50-$100
+    points += (amount - 50) * 1; // 1 point per $ from $50-$100
   }
   return points;
 };

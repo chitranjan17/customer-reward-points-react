@@ -1,5 +1,5 @@
 // URL for the static JSON data stored in public folder
-const DATA_URL = '/data/transactions.json';
+const DATA_URL = "/data/transactions.json";
 
 // small helper for artificial delay
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -11,7 +11,7 @@ export const fetchTransactions = async (delay = 1500) => {
 
   const response = await fetch(DATA_URL);
   if (!response.ok) {
-    return { success: false, error: 'Failed to load transactions' };
+    return { success: false, error: "Failed to load transactions" };
   }
 
   const data = await response.json();
@@ -29,7 +29,7 @@ export const fetchCustomerSummary = async (customerId, delay = 1000) => {
 
   const res = await fetchTransactions(0);
   if (!res.success) {
-    return { success: false, error: 'Unable to load customer summary' };
+    return { success: false, error: "Unable to load customer summary" };
   }
 
   const transactions = res.data.filter((t) => t.customerId === customerId);
