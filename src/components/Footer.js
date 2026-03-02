@@ -4,7 +4,7 @@ import React from "react";
 const Footer = ({ description = "", copyright = "" }) => {
   const year = new Date().getFullYear();
   return (
-    <footer className="app-footer">
+    <footer className="app-footer" style={{ textAlign: "right" }}>
       {description && <p>{description}</p>}
       {copyright && (
         <p style={{ marginTop: 8, fontSize: "0.9rem" }}>
