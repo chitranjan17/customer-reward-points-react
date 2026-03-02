@@ -2,7 +2,6 @@ import React from "react";
 
 // Rich footer component with tagline, description, links, and copyright
 const Footer = ({
-  tagline = "",
   description = "",
   companyName = "",
   companyWebsite = "",
@@ -12,18 +11,12 @@ const Footer = ({
   const year = new Date().getFullYear();
 
   return (
-    <footer className="app-footer" style={{ textAlign: "center", paddingTop: 20 }}>
-      {tagline && (
-        <p style={{ fontSize: "1.1rem", fontWeight: 600, marginBottom: 8 }}>
-          {tagline}
-        </p>
-      )}
+    <footer className="app-footer">
+      {description && <p className="footer-description">{description}</p>}
 
-      {description && <p style={{ marginBottom: 12, opacity: 0.9 }}>{description}</p>}
-
-      <div style={{ fontSize: "0.9rem", marginTop: 12, marginBottom: 12 }}>
+      <div className="footer-links">
         {companyWebsite && (
-          <span style={{ marginRight: 16 }}>
+          <span className="footer-link-item">
             🌐{" "}
             <a href={companyWebsite} target="_blank" rel="noopener noreferrer">
               {companyWebsite}
@@ -31,15 +24,14 @@ const Footer = ({
           </span>
         )}
         {contactEmail && (
-          <span>
-            📧{" "}
-            <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
+          <span className="footer-link-item">
+            📧 <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
           </span>
         )}
       </div>
 
       {(copyright || companyName) && (
-        <p style={{ borderTop: "1px solid rgba(255,255,255,0.2)", paddingTop: 12, marginTop: 12 }}>
+        <p className="footer-copyright">
           &copy; {year} {companyName || copyright}
         </p>
       )}

@@ -286,6 +286,39 @@
   text-align: center;
   font-size: 0.85rem;
   opacity: 0.9;
+  padding-top: 20px;
+}
+
+.footer-description {
+  margin-bottom: 12px;
+  opacity: 0.85;
+}
+
+.footer-links {
+  font-size: 0.9rem;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.footer-link-item {
+  margin-right: 16px;
+  display: inline-block;
+}
+
+.footer-link-item a {
+  color: white;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.footer-link-item a:hover {
+  opacity: 0.7;
+}
+
+.footer-copyright {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 12px;
+  margin-top: 12px;
 }
 
 /* Responsive Design */
