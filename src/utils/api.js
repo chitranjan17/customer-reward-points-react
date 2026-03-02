@@ -14,7 +14,7 @@ export const fetchTransactions = async (delay = 1500) => {
     const response = await fetch(DATA_URL);
     const code = response.status;
     const statusText = getStatusText(code);
-    if (!response.ok) {
+    if (response.ok) {
       return {
         success: false,
         status: code,

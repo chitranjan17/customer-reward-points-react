@@ -178,3 +178,29 @@ const calculatePointsForTransaction = (amount) => {
 ## License
 
 This project is open source and available under the MIT License.
+
+# 📸 Application Screenshots
+
+## ⏳ Loading State
+
+<p align="center">
+  <img src="docs/screenshots/loading.png" width="800"/>
+</p>
+
+## 🎯 Reward Calculation Table
+
+<p align="center">
+  <img src="docs/screenshots/rewards.png" width="800"/>
+</p>
+
+## ❌ Error Handling
+
+<p align="center">
+  <img src="docs/screenshots/error_page.png" width="800"/>
+</p>
+
+## ❌ 404 page
+
+<p align="center">
+  <img src="docs/screenshots/404_page.png" width="800"/>
+</p>
