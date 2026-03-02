@@ -92,7 +92,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header loading={loading} />
+      <Header />
 
       <main className="app-main">
         {error && <ErrorBadge error={error} />}
