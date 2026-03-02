@@ -1,5 +1,5 @@
 import { LABELS } from "../constants";
-import { HTTP_STATUS, getStatusText } from "../statusCodes";
+import { HTTP_STATUS, getStatusText, getAppStatusText } from "../statusCodes";
 
 // URL for the static JSON data stored in public folder
 const DATA_URL = "/data/transactions.json";
@@ -42,12 +42,37 @@ export const fetchCustomerSummary = async (customerId, delay = 1000) => {
   // delay before fetching to simulate network
   if (delay > 0) await wait(delay);
 
+  if (!customerId) {
+    // invalid parameters
+    return {
+      success: false,
+      appCode: 1002,
+      appText: getAppStatusText(1002),
+      error: LABELS.ERRORS.CUSTOMER_SUMMARY_FAILED,
+    };
+  }
+
   const res = await fetchTransactions(0);
   if (!res.success) {
-    return { success: false, error: LABELS.ERRORS.CUSTOMER_SUMMARY_FAILED };
+    return {
+      success: false,
+      status: res.status,
+      statusText: res.statusText,
+      error: LABELS.ERRORS.CUSTOMER_SUMMARY_FAILED,
+    };
   }
 
   const transactions = res.data.filter((t) => t.customerId === customerId);
+
+  if (transactions.length === 0) {
+    return {
+      success: false,
+      appCode: 1001,
+      appText: getAppStatusText(1001),
+      data: { customerId, transactions },
+    };
+  }
+
   return {
     success: true,
     data: {
