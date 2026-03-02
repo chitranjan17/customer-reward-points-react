@@ -56,15 +56,15 @@ const CustomerSummary = ({ summary, loading }) => {
           <h3>{LABELS.REWARDS_SUMMARY.POINTS_BY_MONTH}</h3>
           <div className="month-cards">
             <div className="month-card">
-              <h4>{LABELS.SUMMARY.DECEMBER}</h4>
+              <h4>{LABELS.REWARDS_SUMMARY.DECEMBER}</h4>
               <p className="month-points">{summary.monthlyTotals.December}</p>
             </div>
             <div className="month-card">
-              <h4>{LABELS.SUMMARY.JANUARY}</h4>
+              <h4>{LABELS.REWARDS_SUMMARY.JANUARY}</h4>
               <p className="month-points">{summary.monthlyTotals.January}</p>
             </div>
             <div className="month-card">
-              <h4>{LABELS.SUMMARY.FEBRUARY}</h4>
+              <h4>{LABELS.REWARDS_SUMMARY.FEBRUARY}</h4>
               <p className="month-points">{summary.monthlyTotals.February}</p>
             </div>
           </div>
