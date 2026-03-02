@@ -98,6 +98,30 @@ npm run build
 
 ## How It Works
 
+### GenericTable Component
+
+The `GenericTable` is a reusable component that can render any tabular data. It accepts the following props:
+
+- `data` – array of row objects
+- `columns` – array of column definitions `{ header, accessor, className? }`
+- `title` – optional table title shown above the header
+- `itemName` – name for the rows used in the footer (e.g. "customers", "orders")
+- `loading` – boolean to show a spinner
+- `loadingText` – text to display while loading
+
+You can build columns however you need; for example:
+
+```js
+const columns = [
+  { header: 'Customer', accessor: r => r.customerName },
+  { header: 'Dec', accessor: r => r.byMonth.December, className: 'points' },
+];
+```
+
+The demo in this repo passes reward data and dynamic month columns.
+
+## How It Works
+
 1. **Component Initialization**: The `App` component loads on mount
 2. **API Call**: Simulates fetching transaction data with a 1.5-second delay
 3. **Calculations**:

@@ -99,7 +99,14 @@ function App() {
       <main className="app-main">
         {summary && <CustomerSummary summary={summary} loading={loading} />}
 
-        <GenericTable rewards={rewards} loading={loading} columns={columns} />
+        <GenericTable
+          data={rewards}
+          loading={loading}
+          columns={columns}
+          title="Rewards by Customer and Month"
+          itemName="customers"
+          loadingText={LABELS.LOADING_REWARDS}
+        />
       </main>
 
       <Footer summary={summary} lastUpdated={lastUpdated} />

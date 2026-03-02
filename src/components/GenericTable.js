@@ -1,12 +1,19 @@
 import React, { useState, useMemo } from "react";
 import { LABELS } from "../constants";
 
-const GenericTable = ({ rewards = [], loading, columns }) => {
+const GenericTable = ({
+  data = [],
+  loading,
+  columns = [],
+  title = "",
+  itemName = "items",
+  loadingText = LABELS.LOADING_REWARDS,
+}) => {
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(5);
 
   // columns prop should be array of { header: string, accessor: row=>value }
-  const defaultColumns = [
+  const fallbackColumns = [
     { header: LABELS.TABLE_HEADERS.CUSTOMER_ID, accessor: (r) => r.customerId },
     {
       header: LABELS.TABLE_HEADERS.CUSTOMER_NAME,
@@ -27,9 +34,9 @@ const GenericTable = ({ rewards = [], loading, columns }) => {
     { header: LABELS.TABLE_HEADERS.TOTAL_POINTS, accessor: (r) => r.total },
   ];
 
-  const tableCols = columns && columns.length ? columns : defaultColumns;
+  const tableCols = columns && columns.length ? columns : fallbackColumns;
 
-  const totalItems = rewards.length;
+  const totalItems = data.length;
   const totalPages = Math.max(1, Math.ceil(totalItems / pageSize));
 
   // Ensure current page is valid when rewards or pageSize change
@@ -37,14 +44,14 @@ const GenericTable = ({ rewards = [], loading, columns }) => {
 
   const paged = useMemo(() => {
     const start = (page - 1) * pageSize;
-    return rewards.slice(start, start + pageSize);
-  }, [rewards, page, pageSize]);
+    return data.slice(start, start + pageSize);
+  }, [data, page, pageSize]);
 
   if (loading) {
     return (
       <div className="loading-container">
         <div className="spinner"></div>
-        <p>{LABELS.LOADING_REWARDS}</p>
+        <p>{loadingText}</p>
       </div>
     );
   }
@@ -54,7 +61,7 @@ const GenericTable = ({ rewards = [], loading, columns }) => {
 
   return (
     <div className="table-container">
-      <h2>Rewards by Customer and Month</h2>
+      {title && <h2>{title}</h2>}
 
       <div
         className="table-controls"
@@ -126,7 +133,7 @@ const GenericTable = ({ rewards = [], loading, columns }) => {
           gap: 12,
         }}
       >
-        <small>{totalItems} customers</small>
+        <small>{totalItems} {itemName}</small>
       </div>
     </div>
   );
