@@ -34,4 +34,8 @@ export const LABELS = {
     JANUARY: "January",
     FEBRUARY: "February",
   },
+
+  // defaults for generic table component
+  DEFAULT_TABLE_TITLE: "Rewards by Customer and Month",
+  DEFAULT_TABLE_ITEM: "customers",
 };

@@ -103,8 +103,8 @@ function App() {
           data={rewards}
           loading={loading}
           columns={columns}
-          title="Rewards by Customer and Month"
-          itemName="customers"
+          title={LABELS.DEFAULT_TABLE_TITLE}
+          itemName={LABELS.DEFAULT_TABLE_ITEM}
           loadingText={LABELS.LOADING_REWARDS}
         />
       </main>

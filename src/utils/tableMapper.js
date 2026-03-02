@@ -13,7 +13,10 @@ export function rewardsMapper(data) {
   const sample = data[0];
   const cols = [
     { header: LABELS.TABLE_HEADERS.CUSTOMER_ID, accessor: (r) => r.customerId },
-    { header: LABELS.TABLE_HEADERS.CUSTOMER_NAME, accessor: (r) => r.customerName },
+    {
+      header: LABELS.TABLE_HEADERS.CUSTOMER_NAME,
+      accessor: (r) => r.customerName,
+    },
   ];
 
   if (sample.byMonth) {
@@ -34,8 +37,8 @@ export function rewardsMapper(data) {
 
   return {
     cols,
-    title: "Rewards by Customer and Month",
-    itemName: "customers",
+    title: LABELS.DEFAULT_TABLE_TITLE,
+    itemName: LABELS.DEFAULT_TABLE_ITEM,
   };
 }
 
