@@ -32,7 +32,7 @@ const Footer = ({
 
       {(copyright || companyName) && (
         <p className="footer-copyright">
-          &copy; {year} {companyName || copyright}
+          <sup>&copy;</sup> {year} {companyName || copyright}
         </p>
       )}
     </footer>
