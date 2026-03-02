@@ -58,7 +58,18 @@ function App() {
     loadData();
   }, []);
 
-  // build columns dynamically based on rewards data (falls back inside component if no columns prop)
+  // Default summary structure for error states or initial load
+  const defaultSummary = {
+    totalPoints: 0,
+    totalTransactions: 0,
+    totalSpent: 0,
+    customerPoints: {},
+    monthlyTotals: { December: 0, January: 0, February: 0 },
+  };
+
+  // Use actual summary if available, otherwise use default
+  const displaySummary = summary || defaultSummary;
+
   const columns = React.useMemo(() => {
     if (!rewards.length) return [];
     const sample = rewards[0];
@@ -97,7 +108,7 @@ function App() {
       <main className="app-main">
         {error && <ErrorBadge error={error} />}
 
-        {summary && <CustomerSummary summary={summary} loading={loading} />}
+        <CustomerSummary summary={displaySummary} loading={loading} />
 
         <GenericTable
           data={rewards}
