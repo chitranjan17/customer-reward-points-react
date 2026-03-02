@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { LABELS } from "../constants";
 
 const CustomerSummary = ({ summary, loading }) => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
   if (loading) return null;
 

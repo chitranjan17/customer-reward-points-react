@@ -5,6 +5,7 @@
   flex-direction: column;
 }
 
+
 .app-header {
   background-color: rgba(0, 0, 0, 0.3);
   color: white;
@@ -402,4 +403,34 @@
   .month-points {
     font-size: 1.3rem;
   }
+}
+
+
+
+/* Make full page height */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+/* Main layout */
+.app-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Push footer down */
+.app-content {
+  flex: 1;
+}
+
+/* Footer styling */
+.app-footer {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  padding: 20px 12px;
+  text-align: center;
+  font-size: 0.85rem;
+  opacity: 0.9;
 }

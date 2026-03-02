@@ -45,4 +45,5 @@ export const APP_STATUS = {
   1001: "No transactions found for customer",
   1002: "Invalid request parameters",
 };
-export const getAppStatusText = (code) => APP_STATUS[code] || "Unknown Application Status";
+export const getAppStatusText = (code) =>
+  APP_STATUS[code] || "Unknown Application Status";

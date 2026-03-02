@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 // Rich footer component with description, links, and copyright
 const Footer = ({
-  description = "",
   companyName = "",
   companyWebsite = "",
   contactEmail = "",
@@ -12,8 +11,6 @@ const Footer = ({
 
   return (
     <footer className="app-footer">
-      {description && <p className="footer-description">{description}</p>}
-
       <div className="footer-links">
         {companyWebsite && (
           <span className="footer-link-item">
@@ -40,19 +37,10 @@ const Footer = ({
 };
 
 Footer.propTypes = {
-  description: PropTypes.string,
-  companyName: PropTypes.string,
-  companyWebsite: PropTypes.string,
-  contactEmail: PropTypes.string,
+  companyName: PropTypes.string.isRequired,
+  companyWebsite: PropTypes.string.isRequired,
+  contactEmail: PropTypes.string.isRequired,
   copyright: PropTypes.string,
-};
-
-Footer.defaultProps = {
-  description: "",
-  companyName: "",
-  companyWebsite: "",
-  contactEmail: "",
-  copyright: "",
 };
 
 export default Footer;

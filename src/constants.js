@@ -1,5 +1,7 @@
 // Centralized labels and messages used throughout the app
 
+import DashBoard from "./components/DashBoard";
+
 export const LABELS = {
   APP_TITLE: "💳 Customer Rewards Program",
   SUBTITLE: "3-Month Rewards Summary",
@@ -13,6 +15,8 @@ export const LABELS = {
   ERRORS: {
     TRANSACTION_FETCH_FAILED: "Failed to load transactions",
     CUSTOMER_SUMMARY_FAILED: "Unable to load customer summary",
+    PAGE_NOT_FOUND: "404 - Page Not Found",
+    PAGE_NOT_FOUND_DESC: "Sorry, the page you are looking for does not exist.",
   },
 
   // headers used by the sample rewards table
@@ -40,4 +44,8 @@ export const LABELS = {
   // defaults for generic table component (rewards-specific)
   REWARDS_TABLE_DEFAULT_TITLE: "Rewards by Customer and Month",
   REWARDS_TABLE_DEFAULT_ITEM: "customers",
+  ROUTES: {
+    DASHBOARD: "Dashboard",
+    NOTFOUND: "*",
+  },
 };

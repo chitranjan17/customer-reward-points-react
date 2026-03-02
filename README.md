@@ -43,11 +43,14 @@ rewards-program/
 │   └── index.html              # Main HTML entry point
 ├── src/
 │   ├── components/
-│   │   ├── GenericTable.js      # Reusable table component (formerly RewardsTable)
+|   |   ├── PageNotFound.js   # In no routes found routes 404 page
+│   │   ├── DashBoard.js      # Default landing component
+│   │   ├── GenericTable.js   # Reusable table component
 │   │   └── CustomerSummary.js   # Summary statistics display
 │   ├── utils/
 │   │   ├── api.js              # Simulated API calls
 │   │   └── rewards.js          # Rewards calculation logic
+│   │   └── tableMapper.js      # map required table based on values passed
 │   ├── App.js                  # Main app component
 │   ├── App.css                 # Main styles
 │   └── index.js                # React DOM render

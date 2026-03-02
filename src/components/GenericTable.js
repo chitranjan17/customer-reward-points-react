@@ -15,7 +15,10 @@ const GenericTable = ({
 
   // columns prop should be array of { header: string, accessor: row=>value }
   const fallbackColumns = [
-    { header: LABELS.REWARDS_TABLE_HEADERS.CUSTOMER_ID, accessor: (r) => r.customerId },
+    {
+      header: LABELS.REWARDS_TABLE_HEADERS.CUSTOMER_ID,
+      accessor: (r) => r.customerId,
+    },
     {
       header: LABELS.REWARDS_TABLE_HEADERS.CUSTOMER_NAME,
       accessor: (r) => r.customerName,
@@ -32,7 +35,10 @@ const GenericTable = ({
       header: LABELS.REWARDS_TABLE_HEADERS.FEBRUARY,
       accessor: (r) => r.byMonth?.February,
     },
-    { header: LABELS.REWARDS_TABLE_HEADERS.TOTAL_POINTS, accessor: (r) => r.total },
+    {
+      header: LABELS.REWARDS_TABLE_HEADERS.TOTAL_POINTS,
+      accessor: (r) => r.total,
+    },
   ];
 
   // if a mapper is provided, run it to derive configuration

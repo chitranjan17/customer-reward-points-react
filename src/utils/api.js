@@ -9,30 +9,48 @@ const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 
 // Fetch transactions from JSON file using native fetch API
 export const fetchTransactions = async (delay = 1500) => {
-  // simulate latency
-  if (delay > 0) await wait(delay);
+  try {
+    if (delay > 0) await wait(delay);
+    const response = await fetch(DATA_URL);
+    const code = response.status;
+    const statusText = getStatusText(code);
+    if (!response.ok) {
+      return {
+        success: false,
+        status: code,
+        statusText,
+        error: LABELS.ERRORS.TRANSACTION_FETCH_FAILED,
+        timestamp: new Date().toISOString(),
+      };
+    }
 
-  const response = await fetch(DATA_URL);
+    let data;
+    try {
+      data = await response.json();
+    } catch (jsonError) {
+      return {
+        success: false,
+        status: code,
+        statusText: "Invalid JSON",
+        error: "Malformed response from server",
+        timestamp: new Date().toISOString(),
+      };
+    }
 
-  // include status code and description in return object
-  const code = response.status;
-  const statusText = getStatusText(code);
-
-  if (!response.ok) {
     return {
-      success: false,
+      success: true,
       status: code,
       statusText,
-      error: LABELS.ERRORS.TRANSACTION_FETCH_FAILED,
+      data,
+      timestamp: new Date().toISOString(),
+    };
+  } catch (error) {
+    return {
+      success: false,
+      status: 0,
+      statusText: "Network Error",
+      error: error.message || "Unexpected error occurred",
+      timestamp: new Date().toISOString(),
     };
   }
-
-  const data = await response.json();
-  return {
-    success: true,
-    status: code,
-    statusText,
-    data,
-    timestamp: new Date().toISOString(),
-  };
 };
