@@ -53,7 +53,7 @@ const CustomerSummary = ({ summary, loading }) => {
         </div>
 
         <div className="monthly-summary" style={{ marginTop: 20 }}>
-          <h3>{LABELS.SUMMARY.POINTS_BY_MONTH}</h3>
+          <h3>{LABELS.REWARDS_SUMMARY.POINTS_BY_MONTH}</h3>
           <div className="month-cards">
             <div className="month-card">
               <h4>{LABELS.SUMMARY.DECEMBER}</h4>
