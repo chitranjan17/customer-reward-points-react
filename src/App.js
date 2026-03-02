@@ -60,6 +60,32 @@ function App() {
     loadData();
   }, []);
 
+  // build columns dynamically based on rewards data (falls back inside component if no columns prop)
+  const columns = React.useMemo(() => {
+    if (!rewards.length) return [];
+    const sample = rewards[0];
+    const cols = [
+      { header: LABELS.TABLE_HEADERS.CUSTOMER_ID, accessor: (r) => r.customerId },
+      { header: LABELS.TABLE_HEADERS.CUSTOMER_NAME, accessor: (r) => r.customerName },
+    ];
+    // any byMonth keys
+    if (sample.byMonth) {
+      Object.keys(sample.byMonth).forEach((month) => {
+        cols.push({
+          header: LABELS.TABLE_HEADERS[month.toUpperCase()] || month,
+          accessor: (r) => r.byMonth[month],
+          className: "points",
+        });
+      });
+    }
+    cols.push({
+      header: LABELS.TABLE_HEADERS.TOTAL_POINTS,
+      accessor: (r) => r.total,
+      className: "total-points",
+    });
+    return cols;
+  }, [rewards]);
+
   return (
     <div className="App">
       <Header loading={loading} error={error} />
@@ -67,7 +93,7 @@ function App() {
       <main className="app-main">
         {summary && <CustomerSummary summary={summary} loading={loading} />}
 
-        <RewardsTable rewards={rewards} loading={loading} />
+        <RewardsTable rewards={rewards} loading={loading} columns={columns} />
       </main>
 
       <Footer summary={summary} lastUpdated={lastUpdated} />
