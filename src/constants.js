@@ -7,7 +7,13 @@ export const LABELS = {
   LOADING_REWARDS: "Loading rewards data...",
   FETCH_ERROR: "Failed to fetch data",
   LOAD_ERROR_PREFIX: "Error loading rewards data: ",
-  FOOTER_NOTE: "Rewards earned based on transaction amounts over 3-month period",
+  FOOTER_NOTE:
+    "Rewards earned based on transaction amounts over 3-month period",
+
+  ERRORS: {
+    TRANSACTION_FETCH_FAILED: "Failed to load transactions",
+    CUSTOMER_SUMMARY_FAILED: "Unable to load customer summary",
+  },
 
   TABLE_HEADERS: {
     CUSTOMER_ID: "Customer ID",

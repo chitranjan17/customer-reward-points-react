@@ -1,3 +1,5 @@
+import { LABELS } from "../constants";
+
 // URL for the static JSON data stored in public folder
 const DATA_URL = "/data/transactions.json";
 
@@ -11,7 +13,7 @@ export const fetchTransactions = async (delay = 1500) => {
 
   const response = await fetch(DATA_URL);
   if (!response.ok) {
-    return { success: false, error: "Failed to load transactions" };
+    return { success: false, error: LABELS.ERRORS.TRANSACTION_FETCH_FAILED };
   }
 
   const data = await response.json();
@@ -29,7 +31,7 @@ export const fetchCustomerSummary = async (customerId, delay = 1000) => {
 
   const res = await fetchTransactions(0);
   if (!res.success) {
-    return { success: false, error: "Unable to load customer summary" };
+    return { success: false, error: LABELS.ERRORS.CUSTOMER_SUMMARY_FAILED };
   }
 
   const transactions = res.data.filter((t) => t.customerId === customerId);
