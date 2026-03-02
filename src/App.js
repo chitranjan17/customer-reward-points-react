@@ -4,6 +4,7 @@ import GenericTable from "./components/GenericTable";
 import CustomerSummary from "./components/CustomerSummary";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import ErrorBadge from "./components/ErrorBadge";
 import { fetchTransactions } from "./utils/api";
 import {
   calculateRewardsByCustomerMonth,
@@ -91,9 +92,11 @@ function App() {
 
   return (
     <div className="App">
-      <Header loading={loading} error={error} />
+      <Header loading={loading} />
 
       <main className="app-main">
+        {error && <ErrorBadge error={error} />}
+
         {summary && <CustomerSummary summary={summary} loading={loading} />}
 
         <GenericTable
@@ -107,7 +110,6 @@ function App() {
       </main>
 
       <Footer
-        tagline="Maximize Your Rewards"
         description={LABELS.FOOTER_NOTE}
         companyName="XYZ Rewards Inc."
         companyWebsite="https://www.xyz.com"
