@@ -33,6 +33,33 @@
   width: 100%;
 }
 
+/* Error Badge - Highlighted */
+.error-badge {
+  background-color: #ffebee;
+  border: 2px solid #d32f2f;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  color: #b71c1c;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(211, 47, 47, 0.2);
+  display: block;
+  line-height: 1.6;
+}
+
+.error-badge div {
+  margin-bottom: 8px;
+}
+
+.error-badge div:last-child {
+  margin-bottom: 0;
+}
+
+.error-badge strong {
+  color: #d32f2f;
+  font-size: 0.95rem;
+}
+
 /* Summary Container */
 .summary-container {
   margin-bottom: 24px;
