@@ -92,7 +92,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Header title={LABELS.APP_TITLE} subtitle={LABELS.SUBTITLE} />
 
       <main className="app-main">
         {error && <ErrorBadge error={error} />}
